@@ -1,0 +1,115 @@
+/movie-website
+  ├── index.html
+  ├── styles.css
+  └── script.js
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Database</h1>
+        <nav>
+            <ul>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="movies">
+            <h2>Popular Movies</h2>
+            <div id="movie-list"></div>
+        </section>
+        
+        <section id="about">
+            <h2>About This Website</h2>
+            <p>This website provides information about popular movies.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Movie Database</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+#movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.movie {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 150px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  const movies = [
+    { title: "Inception", year: 2010 },
+    { title: "The Dark Knight", year: 2008 },
+    { title: "Interstellar", year: 2014 },
+    { title: "Parasite", year: 2019 },
+    { title: "The Matrix", year: 1999 }
+];
+
+const movieList = document.getElementById('movie-list');
+
+movies.forEach(movie => {
+    const movieDiv = document.createElement('div');
+    movieDiv.className = 'movie';
+    movieDiv.innerHTML = `<h3>${movie.title}</h3><p>${movie.year}</p>`;
+    movieList.appendChild(movieDiv);
+});
+  
